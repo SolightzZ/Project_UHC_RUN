@@ -1,0 +1,11 @@
+{
+  "texture_name": "atlas.terrain",
+  "resource_pack_name": "Fake Mob Blocks RP",
+  "padding": 8,
+  "num_mip_levels": 4,
+  "texture_data": {
+    "douarmc:allay": {
+      "textures": "textures/entity/allay/allay.png"
+    }
+  }
+}

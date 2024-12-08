@@ -1,0 +1,28 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.player.first_person.attack_rotation": {
+      "loop": true,
+
+      "animation_length": 0.33333,
+      "bones": {
+        "rightArm": {
+          "rotation": {
+            "0": [
+              "!query.equipped_item_any_tag('slot.weapon.mainhand', 0, 'minecraft:is_sword', 'minecraft:is_axe', 'minecraft:is_trident') ? math.sin(variable.first_person_rotation_factor * (1.0 - variable.attack_time) * (1.0 - variable.attack_time) * 280.0) * -60.0 : -15.15056",
+              "!query.equipped_item_any_tag('slot.weapon.mainhand', 0, 'minecraft:is_sword', 'minecraft:is_axe', 'minecraft:is_trident') ? math.sin(variable.first_person_rotation_factor * (1.0 - variable.attack_time) * (1.0 - variable.attack_time) * 280.0) * 40.0 : 50.64866",
+              "!query.equipped_item_any_tag('slot.weapon.mainhand', 0, 'minecraft:is_sword', 'minecraft:is_axe', 'minecraft:is_trident') ? math.sin(variable.first_person_rotation_factor * (1.0 - variable.attack_time) * (1.0 - variable.attack_time) * 280.0) * 20.0 : -30.5641"
+            ]
+          },
+          "position": {
+            "0.0": [
+              "!query.equipped_item_any_tag('slot.weapon.mainhand', 0, 'minecraft:is_sword', 'minecraft:is_axe', 'minecraft:is_trident') ? math.clamp(-15.5 * math.sin(variable.first_person_rotation_factor * variable.attack_time * 112.0), -7.0, 999.0) * math.sin(variable.first_person_rotation_factor * variable.attack_time * 112.0) : (variable.attack_time * 5) + math.clamp(-15.5 * math.sin(variable.first_person_rotation_factor * variable.attack_time * 112.0), -7.0, 999.0) * math.sin(variable.first_person_rotation_factor * variable.attack_time * 112.0)",
+              "!query.equipped_item_any_tag('slot.weapon.mainhand', 0, 'minecraft:is_sword', 'minecraft:is_axe', 'minecraft:is_trident') ? math.sin(variable.first_person_rotation_factor * (1.0 - variable.attack_time) * (1.0 - variable.attack_time) * 200.0) * 7.5 - variable.first_person_rotation_factor * variable.attack_time * 15.0 + variable.short_arm_offset_right : (variable.attack_time * -5)  + math.sin(variable.first_person_rotation_factor * (1.0 - variable.attack_time) * (1.0 - variable.attack_time) * 200.0) * 7.5 - variable.first_person_rotation_factor * variable.attack_time * 15.0 + variable.short_arm_offset_right",
+              "!query.equipped_item_any_tag('slot.weapon.mainhand', 0, 'minecraft:is_sword', 'minecraft:is_axe', 'minecraft:is_trident') ? math.sin(variable.first_person_rotation_factor * variable.attack_time * 120.0) * 1.75 : (variable.attack_time * -3) + math.sin(variable.first_person_rotation_factor * variable.attack_time * 120.0) * 1.75"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

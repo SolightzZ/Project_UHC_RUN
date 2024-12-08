@@ -1,0 +1,61 @@
+{
+  "format_version": "1.10.0",
+  "particle_effect": {
+    "description": {
+      "identifier": "rex:leaflash11",
+      "basic_render_parameters": {
+        "material": "particles_blend",
+        "texture": "textures/particle/leafslash"
+      }
+    },
+    "components": {
+      "minecraft:emitter_initialization": {
+        "creation_expression": "variable.size = 0.08;variable.radius = 0.6;"
+      },
+      "minecraft:emitter_local_space": {
+        "position": true,
+        "rotation": true
+      },
+      "minecraft:emitter_rate_instant": {
+        "num_particles": 1
+      },
+      "minecraft:emitter_lifetime_once": {
+        "active_time": 1
+      },
+      "minecraft:emitter_shape_point": {
+        "offset": [0, 1, 0]
+      },
+      "minecraft:particle_lifetime_expression": {
+        "max_lifetime": 0.5
+      },
+      "minecraft:particle_appearance_billboard": {
+        "size": [3.5, 3.5],
+        "facing_camera_mode": "direction_y",
+        "uv": {
+          "texture_width": 4000,
+          "texture_height": 400,
+          "flipbook": {
+            "base_UV": [0, 0],
+            "size_UV": [400, 400],
+            "step_UV": [400, 0],
+            "frames_per_second": 11,
+            "max_frame": 11,
+            "stretch_to_lifetime": true
+          }
+        }
+      },
+      "minecraft:particle_appearance_tinting": {
+        "color": {
+          "interpolant": "v.particle_age / v.particle_lifetime",
+          "gradient": {
+            "0.13": "#FFF8F8F8",
+            "0.18": "#FFFFFFFF",
+            "0.23": "#ffffffff",
+            "0.27": "#FFFFFFFF",
+            "0.31": "#ffffffff"
+          }
+        }
+      }
+    }
+  }
+}

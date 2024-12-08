@@ -1,0 +1,41 @@
+{
+  "format_version": 2,
+  "metadata": {
+    "authors": ["SolightzZ"]
+  },
+  "header": {
+    "name": "UHCRUN X 2024 BP",
+    "description": "Pack For Sleeplite by SolightzZ",
+    "min_engine_version": [1, 21, 40],
+    "uuid": "0ff19df2-195b-4022-8728-f43e6c79126e",
+    "version": [1, 0, 0]
+  },
+  "modules": [
+    {
+      "type": "data",
+      "uuid": "8893b746-7f20-427d-a2ac-15c081df5aa3",
+      "version": [1, 0, 0]
+    },
+    {
+      "type": "script",
+      "language": "javascript",
+      "uuid": "512503e7-f656-47a4-ad2a-b0dbfbe0eec0",
+      "entry": "scripts/main.js",
+      "version": [1, 0, 0]
+    }
+  ],
+  "dependencies": [
+    {
+      "uuid": "6f306317-d380-4192-be0a-91a5e3fdfcce",
+      "version": [1, 0, 3]
+    },
+    {
+      "module_name": "@minecraft/server",
+      "version": "1.17.0-beta"
+    },
+    {
+      "module_name": "@minecraft/server-ui",
+      "version": "1.4.0-beta"
+    }
+  ]
+}

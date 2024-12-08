@@ -1,0 +1,125 @@
+import { system } from "@minecraft/server";
+
+// Map to store state for each player
+const playerStates = new Map();
+
+function stopTP(player) {
+  player.runCommandAsync("camera @a clear");
+  if (!player) return;
+
+  // Get the player's state
+  const state = playerStates.get(player.id);
+  if (state) {
+    state.isRunning = false;
+  }
+}
+
+function startTP(player) {
+  if (!player) {
+    console.warn("Player is undefined or null. Aborting startTP.");
+    return;
+  }
+
+  // Initialize or retrieve the player's state
+  let state = playerStates.get(player.id);
+  if (!state) {
+    state = { isRunning: false, TP: 0 };
+    playerStates.set(player.id, state);
+  }
+
+  if (state.isRunning) return;
+
+  state.isRunning = true;
+  state.TP = 0;
+
+  const actions = [
+    {
+      tick: 1,
+      command:
+        "camera @p set minecraft:free ease 3 in_out_sine pos ~ ~10 ~40 facing @s",
+    },
+    {
+      tick: 5,
+      command:
+        "camera @p set minecraft:free ease 10 in_out_sine pos ~ ~40 ~ facing @s",
+    },
+    {
+      tick: 20,
+      command:
+        "camera @p set minecraft:free ease 10 in_out_sine pos ~40 ~10 ~ facing @s",
+    },
+    {
+      tick: 35,
+      command:
+        "camera @p set minecraft:free ease 10 in_out_sine pos ~ ~10 ~40 facing @s",
+    },
+    {
+      tick: 50,
+      command:
+        "camera @p set minecraft:free ease 10 in_out_sine pos ~-40 ~10 ~ facing @s",
+    },
+    {
+      tick: 65,
+      command:
+        "camera @p set minecraft:free ease 10 in_out_sine pos ~ ~10 ~-40 facing @s",
+    },
+    {
+      tick: 80,
+      command:
+        "camera @p set minecraft:free ease 10 in_out_sine pos ~ ~3 ~-1.5 facing @s",
+    },
+    {
+      tick: 95,
+      command: "camera @s clear",
+    },
+    { tick: 100, endGame: true },
+  ];
+
+  function executeActions() {
+    if (!state.isRunning) return;
+
+    // Increment TP counter
+    state.TP++;
+
+    // Find the action for the current tick
+    const currentAction = actions.find((action) => action.tick === state.TP);
+    if (currentAction) {
+      if (currentAction.command) {
+        player.runCommandAsync(currentAction.command).catch((err) => {
+          console.warn(`Command failed: ${err}`);
+        });
+      }
+
+      if (currentAction.endGame) {
+        player.runCommandAsync("camera @a clear");
+        stopTP(player);
+        return;
+      }
+    }
+
+    // Schedule the next tick
+    if (state.isRunning) {
+      system.runTimeout(executeActions, 12);
+    }
+  }
+
+  // Start the action sequence
+  executeActions();
+}
+
+system.afterEvents.scriptEventReceive.subscribe((event) => {
+  const player = event.sourceEntity;
+
+  // Validate the player object
+  if (!player) {
+    console.warn("Received script event but sourceEntity is undefined.");
+    return;
+  }
+
+  if (event.id === "TP:start") {
+    startTP(player);
+  } else if (event.id === "TP:stop") {
+    stopTP(player);
+    player.runCommandAsync("camera @a clear");
+  }
+});

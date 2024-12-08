@@ -1,0 +1,46 @@
+{
+	"resource_pack_name": "vanilla",
+	"texture_name": "atlas.items",
+	"texture_data": {
+		"wood_axe": {
+			"textures": [
+				"textures/items/wood_axe"
+			]
+		},
+		"stone_axe": {
+			"textures": [
+				"textures/items/stone_axe"
+			]
+		},
+		"iron_axe": {
+			"textures": [
+				"textures/items/iron_axe"
+			]
+		},
+		"diamond_axe": {
+			"textures": [
+				"textures/items/diamond_axe"
+			]
+		},
+		"netherite_axe": {
+			"textures": [
+				"textures/items/netherite_axe"
+			]
+		},
+		"gold_axe": {
+			"textures": [
+				"textures/items/gold_axe"
+			]
+		},
+		"shield": {
+			"textures": [
+				"textures/items/shield"
+			]
+		},
+		"copper_apple": {
+			"textures": [
+				"textures/items/copper_apple"
+			]
+		}
+	}
+}
