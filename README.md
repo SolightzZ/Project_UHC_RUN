@@ -29,21 +29,35 @@ Add-on นี้สร้างขึ้นเพื่อการเล่น�
 
 ## วิธิการ Setup Add-on
 
-1. การสร้างโลกจำเป็นต้องเปิด Experiments
-2. พิมพ์ Command: /function uhc/setup
-3. หากเราตกลง Spawn สารมารถใช้ Compass: HUB SPAWN ได้
-4. หากผู้เล่นเข้ามาในเกมส์ครบแล้วให้กดที่ Setting
-5. จากนั้นกด Setup
-6. หากใครไม่มี Compass สามารถกดที่ Setting/Compass ให้ได้
-7. และเลือกสีทีมที่ต้องการเล่นและจัดตั้งทีมเองเลย
-8. หากพร้อมแล้วกดที่ Game Start ได้เลย
-9. ถ้าเราเกมส์จบแล้วให้พิมพ์ Command: /function game/end เพื่อกลับ HUB Spawn
+### 1. การสร้างโลกจำเป็นต้องเปิด Experiments
+
+   <img src="https://github.com/SolightzZ/Project_UHC_RUN/blob/main/img/Screenshot%20(2138).png" alt="#">
+### 2. พิมพ์ Command: /function uhc/setup
+   <img src="https://github.com/SolightzZ/Project_UHC_RUN/blob/main/img/Screenshot%20(2120).png" alt="#">
+### 3. หากเราตกลง Spawn สารมารถใช้ Compass: HUB SPAWN ได้
+   <img src="https://github.com/SolightzZ/Project_UHC_RUN/blob/main/img/Screenshot%20(2132).png" alt="#">
+### 4. หากผู้เล่นเข้ามาในเกมส์ครบแล้วให้กดที่ Setting
+   <img src="https://github.com/SolightzZ/Project_UHC_RUN/blob/main/img/Screenshot%20(2123).png" alt="#">
+### 5. จากนั้นกด Setup
+   <img src="https://github.com/SolightzZ/Project_UHC_RUN/blob/main/img/Screenshot%20(2124).png" alt="#">
+### 6. หากใครไม่มี Compass สามารถกดที่ Setting/Compass ให้ได้
+   <img src="https://github.com/SolightzZ/Project_UHC_RUN/blob/main/img/Screenshot%20(2131).png" alt="#">
+### 7. และเลือกสีทีมที่ต้องการเล่นและจัดตั้งทีมเองเลย
+   <img src="https://github.com/SolightzZ/Project_UHC_RUN/blob/main/img/Screenshot%20(2125).png" alt="#">
+### 8. หากพร้อมแล้วกดที่ Game Start ได้เลย
+   <img src="https://github.com/SolightzZ/Project_UHC_RUN/blob/main/img/Screenshot%20(2133).png" alt="#">
+### 9. ถ้าเราเกมส์จบแล้วให้พิมพ์ Command: /function game/end เพื่อกลับ HUB Spawn
+   <img src="https://github.com/SolightzZ/Project_UHC_RUN/blob/main/img/Screenshot%20(2134).png" alt="#">
 
 ## อื่นๆ
 
-- Winner สำหรับ หลังจบเกมส์หรือทีมนั้นมีทีมเดียว
-- TP ใช้สำหรับ TP ทุกคนมาหาตัวเอง
-- Spawn ใช้สำหรับ เรียกทุกคนที่ตกจาก Spawn
+### - Winner สำหรับ หลังจบเกมส์หรือทีมนั้นมีทีมเดียว
+
+   <img src="https://github.com/SolightzZ/Project_UHC_RUN/blob/main/img/Screenshot%20(2127).png" alt="#">
+### - TP ใช้สำหรับ TP ทุกคนมาหาตัวเอง
+   <img src="https://github.com/SolightzZ/Project_UHC_RUN/blob/main/img/Screenshot%20(2129).png" alt="#">
+### - Spawn ใช้สำหรับ เรียกทุกคนที่ตกจาก Spawn
+   <img src="https://github.com/SolightzZ/Project_UHC_RUN/blob/main/img/Screenshot%20(2128).png" alt="#">
 
 ---
 
