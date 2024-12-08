@@ -85,3 +85,10 @@ Add-on นี้สร้างขึ้นเพื่อการเล่น�
   <img src="https://github.com/SolightzZ/Project_UHC_RUN/blob/main/img/Screenshot%20(2128).png" alt="#">
 
 ---
+
+## เครดิตอื่นๆ
+
+- [RPG] Elemental Weapon 2.0 V3 | DO NOT SELL THIS ADDON - Particles
+- Golden Bundle - Forms
+- Barry | Discord: the_greater_will.th - Loot tables
+- Dexten and Halo333 - Emotes
