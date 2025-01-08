@@ -1,0 +1,26 @@
+{
+  "namespace": "hud",
+  "hud_actionbar_text": {
+    "type": "image",
+    "size": ["100%c + 3px", "100%c + 1px"],
+    "anchor_from": "right_middle",
+    "anchor_to": "right_middle",
+    "offset": [-2, 10],
+    "texture": "textures/ui/hud_tip_text_background",
+    "alpha": "@hud.anim_actionbar_text_background_alpha_out",
+    "controls": [
+      {
+        "actionbar_message": {
+          "type": "label",
+          "anchor_from": "center",
+          "anchor_to": "center",
+          "color": "$tool_tip_text",
+          "layer": 1,
+          "text": "$actionbar_text",
+          "localize": false,
+          "alpha": "@hud.anim_actionbar_text_alpha_out"
+        }
+      }
+    ]
+  }
+}

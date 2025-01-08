@@ -1,0 +1,37 @@
+{
+  "format_version": 2,
+  "metadata": {
+    "authors": ["addon"]
+  },
+  "header": {
+    "name": "UHCRUN X 2024 BP",
+    "description": "Winter RUN 2024 by SolightzZ",
+    "min_engine_version": [1, 21, 40],
+    "uuid": "7eb86af9-7619-4443-b3ef-db39fa52a3a2",
+    "version": [1, 0, 0]
+  },
+  "modules": [
+    {
+      "type": "data",
+      "uuid": "a44e2c56-3481-4477-a7ce-189f46415b92",
+      "version": [1, 0, 0]
+    },
+    {
+      "type": "script",
+      "language": "javascript",
+      "uuid": "e848d2a8-bc07-4231-ba64-ad86a43b497b",
+      "entry": "scripts/main.js",
+      "version": [1, 0, 0]
+    }
+  ],
+  "dependencies": [
+    {
+      "module_name": "@minecraft/server",
+      "version": "1.16.0-beta"
+    },
+    {
+      "module_name": "@minecraft/server-ui",
+      "version": "1.4.0-beta"
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "UHCRUN RP",
+    "description": "Pack For Sleeplite by SolightzZ",
+    "min_engine_version": [1, 21, 40],
+    "uuid": "c0ae38ac-2af6-4f4b-9b9c-60206ef0c26c",
+    "version": [1, 0, 3],
+    "pack_name": "Fake_Mob_Blocks",
+    "pack_type": "resource",
+    "associated_pack": "cfc09610-957d-429e-941f-2cded2aabc66"
+  },
+  "modules": [
+    {
+      "type": "resources",
+      "uuid": "cf5c6b22-e8cb-4418-9244-785e01e95be0",
+      "version": [1, 0, 3]
+    }
+  ],
+  "dependencies": [
+    {
+      "uuid": "cfc09610-957d-429e-941f-2cded2aabc66",
+      "version": [1, 0, 3]
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.uhc": {
+      "initial_state": "alive",
+      "states": {
+        "alive": {
+          "transitions": [{ "dead": "!query.is_alive" }]
+        },
+        "dead": {
+          "transitions": [{ "alive": "query.is_alive" }],
+          "on_entry": [
+            "/spawnpoint @s[tag=uhc] ~ ~ ~1",
+            "/particle snow ~~10~",
+            "/function sets/sets",
+            "/playsound kill @a"
+          ]
+        }
+      }
+    }
+  }
+}

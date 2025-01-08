@@ -1,0 +1,1 @@
+scoreboard players set "uhc" uhc 0

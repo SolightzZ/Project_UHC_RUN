@@ -1,0 +1,53 @@
+import { world, system } from "@minecraft/server";
+import { ActionFormData } from "@minecraft/server-ui";
+
+function wait(time) {
+  return new Promise((resolve) => {
+    if (time < 10) return;
+    const waitTimeout = system.runTimeout(() => {
+      system.clearRun(waitTimeout);
+      resolve();
+    }, time);
+  });
+}
+
+function JoinForm(player) {
+  new ActionFormData()
+    .title("Notification")
+    .body(
+      "\n §l§fWelcome to Sleeplite Industry \n Event: Christmas x UHCRUN \n \n §r§fHow to play \n \n 1. เลือกทีมได้ที่ Compass \n 2. สุ่มที่เกิด และ tp มาหาทีมตัวเอง \n 3. หลังจากที่เริ่มเกมส์ \n   เราจะได้ Set Item ช่วงต้นเกมส์ \n \n 4. จะมีเวลาฟาร์ม อยู่ 15 นาที\n 5. Server จะปิดการ PVP และจะไม่ตายช่วงต้นเกมส์ \n   หลังจากครบ 15 นาทีจะเปิด PVP\n \n 6. World Border เริ่มที่ 500 ทุก 4 ทิศทาง และ \n   World Border จะเริ่มเมื่อ Tick ครบ 600 วิ \n   แล้ววงจะเริ่มบีบจาก 500 ถึง 10 ภายใน 18 นาที\n\n §f§lDiscord: discord.gg/gtqfbmvTJK \n Made by  \n "
+    )
+    .button("")
+    .show(player)
+    .then(({ selection, canceled }) => {
+      if (canceled) {
+        JoinForm(player);
+        return;
+      }
+      if (selection === 0) {
+        player.addTag("formInteracted");
+        player.runCommandAsync("stopsound @a[r=1]");
+        player.runCommandAsync("particle minecraft:knockback_roar_particle");
+        player.runCommandAsync("playsound kill");
+        player.runCommandAsync("function sets/name");
+        player.runCommandAsync(`camera @s clear`);
+      }
+    });
+}
+
+async function cam1(player) {
+  await player.runCommandAsync(
+    "/particle minecraft:knockback_roar_particle ^^0.5^"
+  );
+  await player.runCommandAsync(`camera @s set minecraft:third_person_front`);
+  await player.runCommandAsync(
+    `/camera @s set minecraft:free ease 15 in_out_sine pos ^1.5^1.5^2 rot ~-2 ~180`
+  );
+}
+
+world.afterEvents.playerSpawn.subscribe(async ({ player, initialSpawn }) => {
+  if (!initialSpawn) return;
+  await wait(100);
+  JoinForm(player);
+  cam1(player);
+});

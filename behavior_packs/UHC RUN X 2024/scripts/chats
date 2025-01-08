@@ -1,0 +1,49 @@
+import { world } from "@minecraft/server";
+
+async function executeCommand(player, command) {
+  try {
+    await player.runCommandAsync(command);
+  } catch (error) {
+    console.warn(`Failed to execute command: ${command}`, error);
+  }
+}
+
+world.beforeEvents.chatSend.subscribe(async (eventData) => {
+  const player = eventData.sender;
+  const message = eventData.message.toLowerCase();
+
+  if (message === "!help") {
+    eventData.cancel = true;
+    await executeCommand(
+      player,
+      `tellraw @a {"rawtext":[{"text":" \n---- Command Message ----\n  !help - List of commands\n  gmc - Creative mode\n  gms - Survival mode\n  gmsp - Spectator mode\n  !clear - Clear chat for all"}]}`
+    );
+    return;
+  }
+
+  if (message === "!clear") {
+    eventData.cancel = true;
+    for (let i = 0; i < 50; i++) {
+      await executeCommand(player, `tellraw @a {"rawtext":[{"text":" "}]}`);
+    }
+    return;
+  }
+
+  if (player?.hasTag("Admin")) {
+    eventData.cancel = true;
+    switch (message) {
+      case "gmc":
+        await executeCommand(player, "gamemode creative");
+        break;
+      case "gms":
+        await executeCommand(player, "gamemode survival");
+        break;
+      case "gmsp":
+        await executeCommand(player, "gamemode spectator");
+        break;
+      default:
+        eventData.cancel = false;
+        break;
+    }
+  }
+});
