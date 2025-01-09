@@ -106,7 +106,7 @@ Sleeplite Server (SMP) ขอสงวนสิทธิ์ในการแก
 
 ---
 
-**เครดิต:**
+**เครดิต และ ต้องขอบคุณมากๆที่ให้ได้ทำงานชิ้นนี้หากไม่มีพวกเรา ผลงานชิ้นนี้จะไม่เกิดขึ้นเลย: **
 
 - Loot tables & GOLDEN ORDER: Barry | Discord: the_greater_will.th
 - Hive Knockback: Very Original Name
