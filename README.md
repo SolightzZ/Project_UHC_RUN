@@ -101,11 +101,3 @@ Add-on นี้สร้างขึ้นเพื่อใช้งานภ�
 <img src="https://github.com/SolightzZ/Project_UHC_RUN/blob/main/img/Screenshot%20(2128).png" alt="Spawn">
 
 ---
-
-## เครดิตอื่นๆ
-
-- Loot tables & GOLDEN ORDER: Barry | Discord: the_greater_will.th
-- Hive Knockback: Very Original Name
-- Dusty's World Border: DustyIdeas
-- Emotes: Dexten and Halo333
-- Particles: Rexoes
