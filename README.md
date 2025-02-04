@@ -2,6 +2,16 @@
     <img src="https://github.com/SolightzZ/Project_UHC_RUN/blob/main/img/title.png" alt="Title Image">
 </p>
 
+![GitHub all releases](https://img.shields.io/github/downloads/SolightzZ/Project_UHC_RUN/total)
+![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https://github.com/SolightzZ/Project_UHC_RUN)
+![GitHub Repo stars](https://img.shields.io/github/stars/SolightzZ/Project_UHC_RUN?style=social)
+![GitHub forks](https://img.shields.io/github/forks/SolightzZ/Project_UHC_RUN?style=social)
+![GitHub license](https://img.shields.io/github/license/SolightzZ/Project_UHC_RUN)
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/SolightzZ/Project_UHC_RUN)
+
+
+
+
 ---
 
 # 🎮 **UHCRun สำหรับ Minecraft Bedrock Edition**
