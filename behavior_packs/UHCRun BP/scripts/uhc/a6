@@ -1,0 +1,147 @@
+import { world, system } from "@minecraft/server";
+
+let main = true;
+let uhc = 0;
+let isUhcRunning = true; // แก้ไขค่าเริ่มต้นเป็น false
+let intervalId = null;
+
+// ฟังก์ชันที่ใช้ในการอัปเดตคะแนนของผู้เล่น
+async function score(player) {
+  await player.runCommandAsync(`scoreboard players set "Main" uhc ${uhc}`);
+  await player.runCommandAsync(`gamemode spectator @a[tag=!gamemode]`);
+}
+
+// ฟังก์ชันเริ่มต้น UHC
+async function startUhc(player) {
+  if (!player || !player.isValid()) return;
+
+  if (isUhcRunning) {
+    return;
+  }
+
+  isUhcRunning = true;
+  uhc = 0;
+
+  const actions = [
+    {
+      tick: 60,
+      commands: [
+        `tellraw @a {"rawtext":[{"text":"  : §cPVP Disabled"}]}`,
+        "title @a title §cPVP Disabled",
+        "gamerule pvp false",
+        "playsound beacon.deactivate @a",
+      ],
+    },
+    {
+      tick: 90,
+      commands: [
+        `tellraw @a {"rawtext":[{"text":"  : World Border Active in §c600§f Tick"}]}`,
+        `tellraw @a {"rawtext":[{"text":"  : §c- 500 +§f : World Border"}]}`,
+        "function sets/border",
+      ],
+      title: "❗§fWorld Border [ §a+ §f§l500 §r§c- §f]❗",
+    },
+    {
+      tick: 150,
+      commands: [
+        "playsound mob.wither.break_block @a",
+        'tellraw @a {"rawtext":[{"text":"  : §fUHC§6RUN §7Made by "}]}',
+      ],
+    },
+    {
+      tick: 875,
+      commands: ["playsound random.click @a"],
+      title: "PVP Enabled\n§a§l5",
+    },
+    { tick: 880, commands: ["playsound random.click @a"], title: "❗§a§l4" },
+    { tick: 885, commands: ["playsound random.click @a"], title: "❗§e§l3" },
+    { tick: 890, commands: ["playsound random.click @a"], title: "❗§6§l2" },
+    { tick: 895, commands: ["playsound random.click @a"], title: "❗§c§l1" },
+    {
+      tick: 900,
+      commands: [
+        "gamerule pvp true",
+        `tellraw @a {"rawtext":[{"text":"  : §aPVP Enabled"}]}`,
+        "playsound world @a",
+      ],
+      title: "§a❗PVP Enabled",
+    },
+    {
+      tick: 1500,
+      commands: [
+        "gamerule mobgriefing false",
+        "gamerule domobspawning false",
+        `tellraw @a {"rawtext":[{"text":"  : §cMobspawning Disabled"}]}`,
+        "playsound world @a",
+      ],
+    },
+  ];
+
+  // ฟังก์ชันที่จะทำงานทุกๆ Tick
+  intervalId = system.runInterval(async () => {
+    if (!main) return;
+    uhc++;
+
+    // ทำการประมวลผลคำสั่งตามการตั้งค่าของ tick
+    for (const action of actions) {
+      if (uhc === action.tick) {
+        try {
+          await Promise.all(
+            action.commands.map(async (cmd) => {
+              if (player.isValid()) {
+                await player.runCommandAsync(cmd);
+              }
+            })
+          );
+
+          if (action.title && player.isValid()) {
+            await player.runCommandAsync(`title @a title ${action.title}`);
+          }
+        } catch (error) {
+          console.error(`Error at tick ${uhc} with command execution:`, error);
+        }
+      }
+    }
+
+    // อัปเดตคะแนนผู้เล่น
+    if (uhc <= 2000) {
+      score(player);
+    }
+
+    // เมื่อถึง tick limit ให้หยุด UHC
+    if (uhc >= 3000) {
+      console.warn("Tick limit reached. Stopping UHC.");
+      stopUhc(player);
+    }
+  }, 20);
+}
+
+// ฟังก์ชันหยุด UHC
+async function stopUhc(player) {
+  if (intervalId) {
+    system.clearRun(intervalId);
+    intervalId = null;
+  }
+  main = false;
+  uhc = 0;
+
+  if (player && player.isValid()) {
+    await player.sendMessage(" [!] Main §cdisabled!");
+  } else {
+    console.warn("Player is invalid or null.");
+  }
+}
+
+// ฟังก์ชันที่ใช้ในการจัดการเหตุการณ์
+system.afterEvents.scriptEventReceive.subscribe((event) => {
+  const player = event.sourceEntity;
+
+  if (player && player.isValid()) {
+    if (event.id === "main:start") {
+      startUhc(player);
+      player.sendMessage(" [!] Main §aenabled!");
+    } else if (event.id === "main:stop") {
+      stopUhc(player);
+    }
+  }
+});

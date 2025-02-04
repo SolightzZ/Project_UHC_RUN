@@ -1,0 +1,10 @@
+{
+  "format_version": "1.16.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "minecraft:blaze",
+      "spawn_category": "monster"
+    },
+    "conditions": [{ "minecraft:weight": { "default": 0 } }]
+  }
+}

@@ -1,0 +1,105 @@
+{
+  "namespace": "server_form",
+  "long_form": {
+    "type": "panel", // สามารถเปลี่ยนประเภทของ panel ได้ เช่น ใช้ "stack_panel" หรือ "grid" เพื่อเปลี่ยน layout
+    "size": ["100%", "100%"], // ปรับขนาด panel เพื่อให้เหมาะสมกับหน้าจอ
+    "controls": [
+      // Custom-Form Code
+      {
+        "long_form@common_dialogs.main_panel_no_buttons": {
+          "$title_panel": "common_dialogs.standard_title_label", // ปรับเปลี่ยนข้อความหัวเรื่องได้
+          "$title_size": ["100% - 64px", 5], // ปรับขนาดข้อความหัวเรื่อง
+          "size": [280, 310], // ปรับขนาดของกล่องข้อความ
+          "$text_name": "#title_text", // เปลี่ยนชื่อหรือ binding ถ้าต้องการข้อความอื่น
+          "$title_text_binding_type": "none", // สามารถเปลี่ยนเป็น "view" หรือ "collection" เพื่อเชื่อมโยงกับข้อมูล
+          "$child_control": "server_form.long_form_panel", // ระบุ control ภายใน panel ได้
+          "layer": 2 // เพิ่มหรือลดระดับ layer
+        }
+      }
+    ]
+  },
+  "dynamic_button": {
+    "type": "stack_panel", // เปลี่ยน layout เป็นแบบอื่น เช่น "grid"
+    "size": ["100%", 32], // ปรับขนาดของ stack panel ให้เหมาะสม
+    "orientation": "horizontal", // สามารถเปลี่ยนเป็น "vertical" เพื่อเปลี่ยนการจัดเรียง
+    "controls": [
+      {
+        "panel_name": {
+          "type": "panel", // สามารถเพิ่ม background หรือ border ให้ panel ได้
+          "size": [32, "100%c"], // ปรับขนาด panel ให้เหมาะสม
+          "bindings": [
+            {
+              "binding_type": "view", // เปลี่ยนประเภท binding เพื่อเชื่อมโยงข้อมูลอื่น
+              "source_control_name": "image", // เปลี่ยน source เป็น control อื่น
+              "resolve_sibling_scope": true,
+              "source_property_name": "(not (#texture = ''))", // ปรับเงื่อนไข binding
+              "target_property_name": "#visible" // สามารถเปลี่ยน target property เพื่อควบคุมองค์ประกอบอื่น
+            }
+          ],
+          "controls": [
+            {
+              "image": {
+                "type": "image", // เพิ่มไอคอนหรือภาพอื่น ๆ ได้
+                "layer": 2,
+                "size": [30, 30], // ปรับขนาดของไอคอน
+                "offset": [-2, 0], // ปรับตำแหน่งของไอคอน
+                "bindings": [
+                  {
+                    "binding_name": "#form_button_texture", // เชื่อมโยงภาพที่แสดง
+                    "binding_name_override": "#texture",
+                    "binding_type": "collection", // สามารถเปลี่ยนเป็น view หรืออื่น ๆ
+                    "binding_collection_name": "form_buttons"
+                  },
+                  {
+                    "binding_name": "#form_button_texture_file_system",
+                    "binding_name_override": "#texture_file_system",
+                    "binding_type": "collection",
+                    "binding_collection_name": "form_buttons"
+                  },
+                  {
+                    "binding_type": "view",
+                    "source_property_name": "(not ((#texture = '') or (#texture = 'loading')))", // ปรับเงื่อนไขการแสดงผล
+                    "target_property_name": "#visible"
+                  }
+                ]
+              }
+            },
+            {
+              "progress@progress.progress_loading_bars": {
+                "size": [30, 4], // ปรับขนาด progress bar
+                "offset": [-2, 16], // ปรับตำแหน่ง progress bar
+                "bindings": [
+                  {
+                    "binding_type": "view", // เชื่อมโยง progress bar กับสถานะอื่น
+                    "source_control_name": "image",
+                    "resolve_sibling_scope": true,
+                    "source_property_name": "(#texture = 'loading')",
+                    "target_property_name": "#visible"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "form_button@common_buttons.light_text_button": {
+          "$pressed_button_name": "button.form_button_click", // ระบุปุ่มที่เชื่อมโยงกับการกระทำ
+          "anchor_from": "top_left", // ปรับ anchor เพื่อเปลี่ยนตำแหน่ง
+          "anchor_to": "top_left",
+          "size": ["fill", 32], // ขยายขนาดปุ่มเพื่อให้เข้ากับ UI
+          "$button_text": "#form_button_text", // ปรับข้อความในปุ่ม
+          "$button_text_binding_type": "collection", // เชื่อมข้อความกับข้อมูลอื่น
+          "$button_text_grid_collection_name": "form_buttons",
+          "$button_text_max_size": ["100%", 24], // ปรับขนาดข้อความในปุ่ม
+          "bindings": [
+            {
+              "binding_type": "collection_details", // ปรับประเภท binding
+              "binding_collection_name": "form_buttons"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,15 @@
+import * as mc from "@minecraft/server";
+
+const knockbackStrength = 1.5;
+const knockbackHeight = 0.6;
+
+mc.world.afterEvents.entityHurt.subscribe((event) => {
+  const attacker = event.damageSource?.damagingEntity;
+  const victim = event.hurtEntity;
+
+  if (attacker instanceof mc.Player && victim instanceof mc.Player) {
+    victim.runCommand(
+      `title @a actionbar > ${attacker.name} is attack ${victim.name} Hit`
+    );
+  }
+});

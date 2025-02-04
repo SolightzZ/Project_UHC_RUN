@@ -1,0 +1,47 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "Java Combat V2.8 1.21+ For UHCRun",
+    "description": "By Raiyon",
+    "uuid": "05be18a0-65ca-4f8e-a241-01460b79418e",
+    "version": [1, 8, 0],
+    "min_engine_version": [1, 13, 0]
+  },
+
+  "modules": [
+    {
+      "type": "resources",
+      "uuid": "d13a62f5-f3a5-4bf3-b9d8-48f40500312d",
+      "version": [1, 8, 0]
+    }
+  ],
+  "metadata": {
+    "generated_with": {
+      "bridge": ["1.8.3"]
+    }
+  },
+  "dependencies": [
+    {
+      "uuid": "c7d6f19f-4323-453c-96e7-ccd45737132a",
+      "version": [1, 8, 0]
+    }
+  ],
+  "subpacks": [
+    {
+      "folder_name": "bl",
+      "name": "Hotbar Cooldown Icon (§cBottom Left)",
+      "memory_tier": 0
+    },
+    {
+      "folder_name": "cen",
+      "name": "Crosshair Cooldown Icon (§dDefault)",
+      "memory_tier": 1
+    }
+  ],
+  "settings": [
+    {
+      "type": "label",
+      "text": "Choose wich type of cooldown icon you want!"
+    }
+  ]
+}

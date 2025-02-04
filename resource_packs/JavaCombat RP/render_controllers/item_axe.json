@@ -1,0 +1,24 @@
+//bridge-file-version: #4
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.first_person": {
+      "geometry": "Geometry.first_person",
+      "materials": [
+        {
+          "*": "variable.is_enchanted ? material.enchanted : material.default"
+        }
+      ],
+      "textures": ["texture.default", "texture.enchanted"]
+    },
+    "controller.render.third_person": {
+      "textures": ["texture.default", "texture.enchanted"],
+      "materials": [
+        {
+          "*": "variable.is_enchanted ? material.enchanted : material.default"
+        }
+      ],
+      "geometry": "Geometry.third_person"
+    }
+  }
+}
