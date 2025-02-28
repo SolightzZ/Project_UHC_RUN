@@ -6,7 +6,7 @@
 [![GitHub Downloads](https://img.shields.io/github/downloads/SolightzZ/Project_UHC_RUN/total?label=Github%20downloads&logo=github)](https://github.com/SolightzZ/Project_UHC_RUN/releases/latest)
 [![Minecraft - Version](https://img.shields.io/badge/Minecraft-v1.21.60_(Bedrock)-brightgreen)](https://feedback.minecraft.net/hc/en-us/sections/360001186971-Release-Changelogs)
 [![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2FSolightzZ%2FProject_UHC_RUN&count_bg=%2369D01A&title_bg=%23555555&icon=ello.svg&icon_color=%23E7E7E7&title=hits&edge_flat=false)](https://hits.seeyoufarm.com)
-[![Discord](https://badgen.net/discord/members/gtqfbmvTJK?icon=discord&label=Discord&list=what)](https://discord.gg/9KGche8fxm)
+[![Discord](https://badgen.net/discord/members/gtqfbmvTJK?icon=discord&label=Discord&list=what)](https://discord.gg/gtqfbmvTJK)
 
 
 
