@@ -1,0 +1,69 @@
+{
+  "pools": [
+    {
+      "rolls": {
+        "min": 0,
+        "max": 8
+      },
+      "entries": [
+        {
+          "type": "item",
+          "name": "minecraft:golden_apple",
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 0,
+                "max": 1
+              }
+            }
+          ],
+          "weight": 10
+        }
+      ]
+    },
+    {
+      "rolls": {
+        "min": 0,
+        "max": 3
+      },
+      "entries": [
+        {
+          "type": "item",
+          "name": "minecraft:book",
+          "functions": [
+            {
+              "function": "enchant_with_levels",
+              "levels": 1,
+              "treasure": true
+            }
+          ],
+          "weight": 10
+        }
+      ]
+    },
+
+    {
+      "rolls": {
+        "min": 0,
+        "max": 8
+      },
+      "entries": [
+        {
+          "type": "item",
+          "name": "minecraft:diamond",
+          "functions": [
+            {
+              "function": "set_count",
+              "count": {
+                "min": 0,
+                "max": 1
+              }
+            }
+          ],
+          "weight": 10
+        }
+      ]
+    }
+  ]
+}

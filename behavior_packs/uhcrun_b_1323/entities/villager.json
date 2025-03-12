@@ -1,0 +1,71 @@
+{
+  "format_version": "1.13.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "minecraft:villager",
+      "is_spawnable": true,
+      "is_summonable": true,
+      "is_experimental": false
+    },
+    "component_groups": {
+      "farmer": {
+        "minecraft:type_family": {
+          "family": ["villager", "farmer", "mob"]
+        },
+        "minecraft:trade_table": {
+          "display_name": "entity.villager.farmer",
+          "table": "trading/farmer_trades.json",
+          "convert_trades_economy": true
+        }
+      }
+    },
+    "components": {
+      "minecraft:type_family": {
+        "family": ["villager", "mob"]
+      },
+      "minecraft:health": {
+        "value": 20,
+        "max": 20
+      },
+      "minecraft:collision_box": {
+        "width": 0.6,
+        "height": 1.9
+      },
+      "minecraft:nameable": {},
+      "minecraft:navigation.walk": {
+        "is_amphibious": true,
+        "can_path_over_water": true,
+        "can_pass_doors": true,
+        "can_open_doors": true,
+        "can_walk": true,
+        "avoid_water": true
+      },
+      "minecraft:inventory": {
+        "inventory_size": 8,
+        "private": true
+      },
+      "minecraft:behavior.trade_with_player": {
+        "priority": 1
+      },
+      "minecraft:behavior.look_at_trading_player": {
+        "priority": 2
+      },
+      "minecraft:behavior.random_stroll": {
+        "priority": 3,
+        "speed_multiplier": 0.6
+      },
+      "minecraft:physics": {},
+      "minecraft:pushable": {
+        "is_pushable": true,
+        "is_pushable_by_piston": true
+      }
+    },
+    "events": {
+      "minecraft:entity_spawned": {
+        "add": {
+          "component_groups": ["farmer"]
+        }
+      }
+    }
+  }
+}

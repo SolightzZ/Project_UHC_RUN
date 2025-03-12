@@ -1,0 +1,25 @@
+{
+  "format_version": "1.20.0",
+  "minecraft:block": {
+    "description": {
+      "identifier": "fake:redstone_ores",
+      "menu_category": {
+        "category": "nature",
+        "group": "itemGroup.name.ore"
+      }
+    },
+    "components": {
+      "minecraft:destructible_by_mining": {
+        "seconds_to_destroy": 6
+      },
+      "minecraft:destructible_by_explosion": {
+        "explosion_resistance": 6
+      },
+      "minecraft:display_name": "Fake redstone",
+      "minecraft:map_color": "#F7A965",
+      "tag:pickaxe_mine": {},
+      "tag:minecraft:is_pickaxe_item_destructible": {},
+      "minecraft:loot": "loot_tables/blocks/fake_redstone_ores.json"
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "format_version": "1.13.0",
+  "minecraft:feature_rules": {
+    "description": {
+      "identifier": "minecraft:overworld_after_surface_pumpkin_feature_rules",
+      "places_feature": "minecraft:pumpkin_feature"
+    },
+    "conditions": {
+      "placement_pass": "after_surface_pass",
+      "minecraft:biome_filter": []
+    }
+  }
+}

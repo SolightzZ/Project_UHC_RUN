@@ -1,0 +1,5 @@
+{
+  "format_version": [1, 1, 0],
+  "fake:redstone_ores": { "textures": "fake_redstone_ores", "sound": "stone" },
+  "uhc:fake_allay_block": { "sound": "stone" }
+}

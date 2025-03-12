@@ -1,0 +1,11 @@
+{
+  "padding": 8,
+  "num_mip_levels": 4,
+  "resource_pack_name": "vanilla",
+  "texture_name": "atlas.terrain",
+
+  "texture_data": {
+    "uhc_allay": { "textures": "textures/entity/allay/allay.png" },
+    "fake_redstone_ores": { "textures": "textures/blocks/redstone_ore.png" }
+  }
+}

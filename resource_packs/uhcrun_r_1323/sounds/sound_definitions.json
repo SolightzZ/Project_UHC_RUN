@@ -1,0 +1,27 @@
+{
+  "kill": {
+    "_use_legacy_max_distance": "true",
+    "category": "player",
+    "max_distance": 512,
+    "sounds": [
+      "sounds/kill/k1",
+      "sounds/kill/k2",
+      "sounds/kill/k3",
+      "sounds/kill/k4",
+      "sounds/kill/k5"
+    ]
+  },
+  "iphone": { "category": "music", "sounds": [{ "name": "sounds/uhc/iPhone", "stream": true }] },
+  "noti": { "category": "music", "sounds": [{ "name": "sounds/uhc/noti", "stream": true }] },
+  "startPlayer": {
+    "category": "music",
+    "sounds": [{ "name": "sounds/2025/go", "stream": true }]
+  },
+  "spawn": { "category": "music", "sounds": [{ "name": "sounds/uhc/spawn", "stream": true }] },
+  "start": { "category": "music", "sounds": [{ "name": "sounds/2025/spawns", "stream": true }] },
+  "win": { "category": "music", "sounds": [{ "name": "sounds/2025/win", "stream": true }] },
+  "world_noti": {
+    "category": "music",
+    "sounds": [{ "name": "sounds/uhc/world_noti", "stream": true }]
+  }
+}

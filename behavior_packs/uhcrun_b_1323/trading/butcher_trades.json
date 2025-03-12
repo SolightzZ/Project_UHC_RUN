@@ -1,0 +1,112 @@
+{
+  "tiers": [
+    {
+      "trades": [
+        {
+          "wants": [
+            {
+              "item": "minecraft:diamond",
+              "quantity": {
+                "min": 4,
+                "max": 8
+              }
+            }
+          ],
+          "gives": [
+            {
+              "item": "minecraft:diamond_helmet",
+              "functions": [
+                {
+                  "function": "enchant_with_levels",
+                  "treasure": false,
+                  "levels": {
+                    "min": 5,
+                    "max": 18
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "wants": [
+            {
+              "item": "minecraft:diamond",
+              "quantity": {
+                "min": 4,
+                "max": 8
+              }
+            }
+          ],
+          "gives": [
+            {
+              "item": "minecraft:diamond_chestplate",
+              "functions": [
+                {
+                  "function": "enchant_with_levels",
+                  "treasure": false,
+                  "levels": {
+                    "min": 5,
+                    "max": 18
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "wants": [
+            {
+              "item": "minecraft:diamond",
+              "quantity": {
+                "min": 4,
+                "max": 8
+              }
+            }
+          ],
+          "gives": [
+            {
+              "item": "minecraft:diamond_leggings",
+              "functions": [
+                {
+                  "function": "enchant_with_levels",
+                  "treasure": false,
+                  "levels": {
+                    "min": 5,
+                    "max": 18
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "wants": [
+            {
+              "item": "minecraft:diamond",
+              "quantity": {
+                "min": 4,
+                "max": 8
+              }
+            }
+          ],
+          "gives": [
+            {
+              "item": "minecraft:diamond_boots",
+              "functions": [
+                {
+                  "function": "enchant_with_levels",
+                  "treasure": false,
+                  "levels": {
+                    "min": 5,
+                    "max": 18
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

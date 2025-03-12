@@ -1,0 +1,35 @@
+{
+  "format_version": "1.8.0", // ระบุเวอร์ชันของรูปแบบไฟล์กฎการเกิด
+  "minecraft:spawn_rules": {
+    "description": {
+      "identifier": "minecraft:creeper", // ระบุประเภทของเอนทิตีเป็นคริปเปอร์
+      "population_control": "monster" // จัดประเภทเอนทิตีภายใต้การควบคุมประชากรของมอนสเตอร์
+    },
+    "conditions": [
+      {
+        "minecraft:spawns_on_surface": {},
+        "minecraft:spawns_underground": {}, // อนุญาตให้คริปเปอร์เกิดใต้ดิน
+        "minecraft:brightness_filter": {
+          "min": 0,
+          "max": 15,
+          "adjust_for_weather": true // คริปเปอร์เกิดในระดับความสว่างระหว่าง 0 ถึง 7 ปรับตามสภาพอากาศ
+        },
+        "minecraft:difficulty_filter": {
+          "min": "easy",
+          "max": "hard" // คริปเปอร์เกิดในระดับความยากตั้งแต่ easy ถึง hard
+        },
+        "minecraft:weight": {
+          "default": 70 // กำหนดน้ำหนักการเกิดเริ่มต้นสำหรับคริปเปอร์
+        },
+        "minecraft:density_limit": {
+          "surface": 1 // จำกัดความหนาแน่นของคริปเปอร์บนพื้นผิวที่ 5
+        },
+        "minecraft:biome_filter": {
+          "test": "has_biome_tag",
+          "operator": "==",
+          "value": "monster" // กรองไบโอมให้เฉพาะที่มีแท็ก "monster"
+        }
+      }
+    ]
+  }
+}

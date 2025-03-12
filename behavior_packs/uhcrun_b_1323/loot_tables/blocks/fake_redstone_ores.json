@@ -1,0 +1,25 @@
+{
+  "pools": [
+    {
+      "rolls": 1,
+      "conditions": [
+        {
+          "condition": "match_tool",
+          "predicate": {
+            "tag": "minecraft:is_pickaxe"
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "item",
+          "name": "minecraft:air",
+          "count": {
+            "min": 1,
+            "max": 1
+          }
+        }
+      ]
+    }
+  ]
+}

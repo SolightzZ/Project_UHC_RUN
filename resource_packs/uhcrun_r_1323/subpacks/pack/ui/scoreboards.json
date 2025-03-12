@@ -1,0 +1,215 @@
+{
+  "namespace": "scoreboard",
+  "scoreboard_sidebar": {
+    "type": "panel",
+    "size": [0, 0],
+    "offset": [-4, 3],
+    "$hide_numbers_flag": "§h§n",
+    "$name_color": "$player_name_color",
+    "$score_color": "$player_score_color",
+    "anchor_from": "top_right",
+    "anchor_to": "top_right",
+    "controls": [
+      {
+        "hive_sidebar_stack@hive_sidebar_stack": {}
+      }
+    ]
+  },
+  "hive_sidebar_stack": {
+    "type": "stack_panel",
+    "orientation": "horizontal",
+    "size": ["100%c", 0],
+    "anchor_from": "top_right",
+    "anchor_to": "top_right",
+    "controls": [
+      {
+        "hive_sidebar_item_0@hive_sidebar_item": {
+          "$collection_index": 0
+        }
+      },
+      {
+        "hive_sidebar_item_1@hive_sidebar_item": {
+          "$collection_index": 1
+        }
+      },
+      {
+        "hive_sidebar_item_2@hive_sidebar_item": {
+          "$collection_index": 2
+        }
+      },
+      {
+        "hive_sidebar_item_3@hive_sidebar_item": {
+          "$collection_index": 3
+        }
+      },
+      {
+        "hive_sidebar_item_4@hive_sidebar_item": {
+          "$collection_index": 4
+        }
+      },
+      {
+        "hive_sidebar_item_5@hive_sidebar_item": {
+          "$collection_index": 5
+        }
+      },
+      {
+        "hive_sidebar_item_6@hive_sidebar_item": {
+          "$collection_index": 6
+        }
+      },
+      {
+        "hive_sidebar_item_7@hive_sidebar_item": {
+          "$collection_index": 7
+        }
+      },
+      {
+        "hive_sidebar_item_8@hive_sidebar_item": {
+          "$collection_index": 8
+        }
+      },
+      {
+        "hive_sidebar_item_9@hive_sidebar_item": {
+          "$collection_index": 9
+        }
+      },
+      {
+        "hive_sidebar_item_10@hive_sidebar_item": {
+          "$collection_index": 10
+        }
+      },
+      {
+        "hive_sidebar_item_11@hive_sidebar_item": {
+          "$collection_index": 11
+        }
+      },
+      {
+        "hive_sidebar_item_12@hive_sidebar_item": {
+          "$collection_index": 12
+        }
+      },
+      {
+        "hive_sidebar_item_13@hive_sidebar_item": {
+          "$collection_index": 13
+        }
+      },
+      {
+        "hive_sidebar_item_14@hive_sidebar_item": {
+          "$collection_index": 14
+        }
+      }
+    ]
+  },
+  "hive_sidebar_item": {
+    "type": "panel",
+    "size": ["100%c + 2px", 0],
+    "bindings": [
+      {
+        "binding_name": "#scoreboard_sidebar_size"
+      },
+      {
+        "binding_type": "view",
+        "source_property_name": "(#scoreboard_sidebar_size > $collection_index)",
+        "target_property_name": "#visible"
+      }
+    ],
+    "controls": [
+      {
+        "hive_sidebar_bg@hive_sidebar_bg": {}
+      }
+    ]
+  },
+  "hive_sidebar_bg": {
+    "type": "image",
+    "texture": "textures/ui/hud_tip_text_background",
+    "alpha": 0.5,
+    "layer": -1,
+    "size": ["100%c + 10px", "100%cm + 4px"],
+    "anchor_from": "top_right",
+    "anchor_to": "top_right",
+    "controls": [
+      {
+        "names@hive_sidebar_item_names": {}
+      },
+      {
+        "scores@hive_sidebar_item_scores": {
+          "bindings": [
+            {
+              "binding_name": "#objective_sidebar_name"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "(#objective_sidebar_name - $hide_numbers_flag = #objective_sidebar_name)",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
+      },
+      {
+        "padding": {
+          "type": "panel",
+          "size": [3, 0],
+          "bindings": [
+            {
+              "binding_name": "#objective_sidebar_name"
+            },
+            {
+              "binding_type": "view",
+              "source_property_name": "(#objective_sidebar_name - $hide_numbers_flag = #objective_sidebar_name)",
+              "target_property_name": "#visible"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "hive_sidebar_item_names": {
+    "type": "stack_panel",
+    "size": ["100%c", "100%c"],
+    "offset": [5, 0],
+    "collection_name": "scoreboard_players",
+    "anchor_from": "left_middle",
+    "anchor_to": "left_middle",
+    "controls": [
+      {
+        "names_label": {
+          "type": "label",
+          "collection_index": "$collection_index",
+          "text": "#player_name_sidebar",
+          "color": "$name_color",
+          "bindings": [
+            {
+              "binding_name": "#player_name_sidebar",
+              "binding_type": "collection",
+              "binding_collection_name": "scoreboard_players"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "hive_sidebar_item_scores": {
+    "type": "stack_panel",
+    "size": ["90%c", "90%c"],
+    "offset": [-5, 0],
+    "collection_name": "scoreboard_scores",
+    "anchor_from": "right_middle",
+    "anchor_to": "right_middle",
+    "controls": [
+      {
+        "scores_label": {
+          "type": "label",
+          "collection_index": "$collection_index",
+          "text": "#player_score_sidebar",
+          "color": [1.0, 0.3, 0.3],
+          "bindings": [
+            {
+              "binding_name": "#player_score_sidebar",
+              "binding_type": "collection",
+              "binding_collection_name": "scoreboard_scores"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

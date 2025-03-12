@@ -1,0 +1,250 @@
+{
+  "namespace": "hud", // กำหนด namespace สำหรับ HUD
+
+  "vignette_renderer": { "renderer": "flying_item_renderer" }, // ตั้งค่า renderer สำหรับ vignette
+
+  "hud_screen": {
+    "render_only_when_topmost": false, // แสดง HUD screen แม้ว่าจะไม่ใช่หน้าจอที่อยู่ด้านบนสุด
+    "$additional_screen_content": "hud.notification_factory" // เนื้อหาเพิ่มเติมสำหรับ HUD screen
+  },
+  "notification_factory": {
+    "type": "stack_panel", // กำหนดประเภทของ notification factory
+    "size": [0, "100%c"], // กำหนดขนาดของ notification factory
+    "layer": 10, // กำหนด layer ของ notification factory
+    "anchor_from": "top_right", // ยึดจากด้านบนขวา
+    "anchor_to": "top_right", // ยึดไปที่ด้านบนขวา
+    "offset": [-4, 20], // เลื่อนลงมาจากขอบจอ 20px
+    "factory": {
+      "name": "chat_item_factory", // ชื่อของ factory
+      "control_ids": {
+        "chat_item": "@hud.notification" // Control ID สำหรับ chat item
+      }
+    }
+  },
+  "noti_1": {
+    "anim_type": "size", // ประเภทของ animation คือขนาด
+    "duration": "$in_time", // ระยะเวลาของ animation
+    "easing": "out_sine", // ประเภท easing
+    "from": ["100%c", "100%c"], // ขนาดเริ่มต้น
+    "to": [0, "100%c"], // ขนาดสุดท้าย
+    "next": "@hud.noti_2" // animation ถัดไป
+  },
+  "noti_2": {
+    "anim_type": "wait", // ประเภทของ animation คือรอ
+    "duration": "$stay_time", // ระยะเวลาของการรอ
+    "next": "@hud.noti_3" // animation ถัดไป
+  },
+  "noti_3": {
+    "anim_type": "size", // ประเภทของ animation คือขนาด
+    "duration": "$out_time", // ระยะเวลาของ animation
+    "easing": "in_sine", // ประเภท easing
+    "from": [0, "100%c"], // ขนาดเริ่มต้น
+    "to": ["100%c", "100%c"], // ขนาดสุดท้าย
+    "next": "@hud.noti_4" // animation ถัดไป
+  },
+  "noti_4": {
+    "anim_type": "alpha", // ประเภทของ animation คือ alpha
+    "duration": 0, // ระยะเวลาของ animation
+    "from": 1, // ค่า alpha เริ่มต้น
+    "to": 0, // ค่า alpha สุดท้าย
+    "next": "@hud.noti_5" // animation ถัดไป
+  },
+  "noti_5": {
+    "anim_type": "size", // ประเภทของ animation คือขนาด
+    "duration": 1, // ระยะเวลาของ animation
+    "easing": "out_expo", // ประเภท easing
+    "from": ["100%c", "100%c"], // ขนาดเริ่มต้น
+    "to": ["100%c", 0], // ขนาดสุดท้าย
+    "next": "@hud.noti_4", // animation ถัดไป
+    "destroy_at_end": "chat_grid_item" // ทำลายเมื่อสิ้นสุด
+  },
+  "immediate_destroy_anim": {
+    "anim_type": "wait", // ประเภทของ animation คือรอ
+    "duration": 0, // ระยะเวลาของการรอ
+    "destroy_at_end": "chat_grid_item" // ทำลายเมื่อสิ้นสุด
+  },
+  "notification": {
+    "$in_time": 1, // ระยะเวลา in time
+    "$stay_time": 6, // ระยะเวลา stay time
+    "$out_time": 2, // ระยะเวลา out time
+    "type": "panel", // ประเภทของ notification
+    "propagate_alpha": true, // กระจายค่า alpha
+    "anims": ["@hud.noti_1"], // animation สำหรับ notification
+    "controls": [
+      {
+        "notification_background": {
+          "type": "image", // ประเภทของ background
+          "alpha": 0.95,
+          "anchor_from": "top_right", // ยึดจากด้านบนขวา
+          "anchor_to": "top_right", // ยึดไปที่ด้านบนขวา
+          "size": ["100%c + 18px", "100%cm + 12px"], // ขนาดของ background
+          "min_size": ["100%c + 18px", 34], // ขนาดขั้นต่ำของ background
+          "controls": [
+            {
+              "notification_label": {
+                "type": "label", // ประเภทของ label
+                "layer": 1, // layer ของ label
+                "line_padding": 1, // line padding
+                "text": "#notification_message", // ข้อความของ label
+                "anchor_from": "right_middle", // ยึดจากกลางขวา
+                "anchor_to": "right_middle", // ยึดไปที่กลางขวา
+                "offset": [-9, 1], // การเยื้องของ label
+                "max_size": [150, "default"], // ขนาดสูงสุดของ label
+                "bindings": [
+                  {
+                    "binding_type": "view", // ประเภทของ binding
+                    "source_control_name": "notification_background", // ชื่อของ source control
+                    "source_property_name": "#notification_message", // ชื่อของ source property
+                    "target_property_name": "#notification_message", // ชื่อของ target property
+                    "resolve_sibling_scope": true // แก้ไข scope ของ sibling
+                  }
+                ]
+              }
+            },
+            {
+              "notification_icon": {
+                "type": "image", // ประเภทของ icon
+                "layer": 1, // layer ของ icon
+                "size": [16, 16], // ขนาดของ icon
+                "anchor_from": "top_left", // ยึดจากด้านบนซ้าย
+                "anchor_to": "top_left", // ยึดไปที่ด้านบนซ้าย
+                "offset": [9, 9], // การเยื้องของ icon
+                "bindings": [
+                  {
+                    "binding_type": "view", // ประเภทของ binding
+                    "source_control_name": "notification_background", // ชื่อของ source control
+                    "source_property_name": "#notification_icon_texture", // ชื่อของ source property
+                    "target_property_name": "#texture", // ชื่อของ target property
+                    "resolve_sibling_scope": true // แก้ไข scope ของ sibling
+                  },
+                  {
+                    "binding_type": "view", // ประเภทของ binding
+                    "source_property_name": "(not (#texture = '') and (#texture - 'aux:' = #texture))", // ชื่อของ source property
+                    "target_property_name": "#visible" // ชื่อของ target property
+                  }
+                ]
+              }
+            },
+            {
+              "notification_item": {
+                "type": "custom", // ประเภทของ item
+                "renderer": "inventory_item_renderer", // renderer สำหรับ item
+                "layer": 1, // layer ของ item
+                "size": [16, 16], // ขนาดของ item
+                "anchor_from": "top_left", // ยึดจากด้านบนซ้าย
+                "anchor_to": "top_left", // ยึดไปที่ด้านบนซ้าย
+                "offset": [9, 9], // การเยื้องของ item
+                "bindings": [
+                  {
+                    "binding_type": "view", // ประเภทของ binding
+                    "source_control_name": "notification_background", // ชื่อของ source control
+                    "source_property_name": "((#notification_icon_texture - 'aux:') * 1)", // ชื่อของ source property
+                    "target_property_name": "#item_id_aux", // ชื่อของ target property
+                    "resolve_sibling_scope": true // แก้ไข scope ของ sibling
+                  },
+                  {
+                    "binding_type": "view", // ประเภทของ binding
+                    "source_control_name": "notification_background", // ชื่อของ source control
+                    "source_property_name": "(not (#notification_icon_texture - 'aux:' = #notification_icon_texture))", // ชื่อของ source property
+                    "target_property_name": "#visible", // ชื่อของ target property
+                    "resolve_sibling_scope": true // แก้ไข scope ของ sibling
+                  }
+                ]
+              }
+            },
+            {
+              "notification_icon_padding": {
+                "type": "panel", // ประเภทของ panel
+                "size": [6, 0], // ขนาดของ panel
+                "bindings": [
+                  {
+                    "binding_type": "view", // ประเภทของ binding
+                    "source_control_name": "notification_background", // ชื่อของ source control
+                    "source_property_name": "(not (#notification_icon_texture = '')", // ชื่อของ source property
+                    "target_property_name": "#visible", // ชื่อของ target property
+                    "resolve_sibling_scope": true // แก้ไข scope ของ sibling
+                  }
+                ]
+              }
+            }
+          ],
+          "bindings": [
+            {
+              "binding_type": "view", // ประเภทของ binding
+              "source_property_name": "(not (('§␛' + #text + '§r') - ('§␛' + $notification_flag_0e34fd) = ('§␛' + #text + '§r')))", // ชื่อของ source property
+              "target_property_name": "#visible" // ชื่อของ target property
+            },
+            {
+              "binding_type": "view", // ประเภทของ binding
+              "source_property_name": "('\t' + #text - $notification_flag_0e34fd)", // ชื่อของ source property
+              "target_property_name": "#data" // ชื่อของ target property
+            },
+            {
+              "binding_type": "view", // ประเภทของ binding
+              "source_property_name": "('%.501s' * #data)", // ชื่อของ source property
+              "target_property_name": "#message" // ชื่อของ target property
+            },
+            {
+              "binding_type": "view", // ประเภทของ binding
+              "source_property_name": "('§r' + #message - '\t' + '§r')", // ชื่อของ source property
+              "target_property_name": "#notification_message" // ชื่อของ target property
+            },
+            {
+              "binding_type": "view", // ประเภทของ binding
+              "source_property_name": "('%.100s' * (#data - #message))", // ชื่อของ source property
+              "target_property_name": "#icon_texture" // ชื่อของ target property
+            },
+            {
+              "binding_type": "view", // ประเภทของ binding
+              "source_property_name": "(#icon_texture - '\t')", // ชื่อของ source property
+              "target_property_name": "#notification_icon_texture" // ชื่อของ target property
+            },
+            {
+              "binding_type": "view", // ประเภทของ binding
+              "source_property_name": "('%.100s' * (#data - (#message + #icon_texture)))", // ชื่อของ source property
+              "target_property_name": "#background_texture" // ชื่อของ target property
+            },
+            {
+              "binding_type": "view", // ประเภทของ binding
+              "source_property_name": "(#background_texture - '\t')", // ชื่อของ source property
+              "target_property_name": "#texture" // ชื่อของ target property
+            }
+          ]
+        }
+      },
+      {
+        "immediate_destroy": {
+          "type": "stack_panel", // ประเภทของ stack panel
+          "size": [0, 0], // ขนาดของ stack panel
+          "factory": {
+            "name": "immediate_destroy_factory", // ชื่อของ factory
+            "control_name": "@hud.immediate_destroy_control" // ชื่อของ control
+          },
+          "bindings": [
+            {
+              "binding_type": "view", // ประเภทของ binding
+              "source_control_name": "notification_background", // ชื่อของ source control
+              "source_property_name": "((not #visible) * 1)", // ชื่อของ source property
+              "target_property_name": "#collection_length", // ชื่อของ target property
+              "resolve_sibling_scope": true // แก้ไข scope ของ sibling
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "immediate_destroy_control": {
+    "type": "panel", // ประเภทของ panel
+    "size": [0, 0], // ขนาดของ panel
+    "anims": ["@hud.immediate_destroy_anim"] // animation สำหรับ panel
+  },
+  "chat_grid_item/chat_background": {
+    "bindings": [
+      {
+        "binding_type": "view", // ประเภทของ binding
+        "source_property_name": "(('§␛' + #text + '§r') - ('§␛' + $notification_flag_0e34fd) = ('§␛' + #text + '§r'))", // ชื่อของ source property
+        "target_property_name": "#visible" // ชื่อของ target property
+      }
+    ]
+  }
+}

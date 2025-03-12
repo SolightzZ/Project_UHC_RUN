@@ -1,0 +1,6 @@
+{
+    "ui_defs": [
+        "ui/gb_form1.json",
+        "ui/gb_form2.json"
+    ]
+}

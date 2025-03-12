@@ -1,0 +1,104 @@
+{
+  "format_version": "1.12.0",
+  "minecraft:entity": {
+    "description": {
+      "identifier": "minecraft:hopper_minecart",
+      "is_spawnable": false,
+      "is_summonable": true,
+      "is_experimental": false
+    },
+
+    "component_groups": {
+      "minecraft:hopper_active": {
+        "minecraft:item_hopper": {},
+        "minecraft:rail_sensor": {
+          "on_activate": {
+            "event": "minecraft:hopper_deactivate"
+          }
+        }
+      },
+      "minecraft:hopper_inactive": {
+        "minecraft:rail_sensor": {
+          "on_deactivate": {
+            "event": "minecraft:hopper_activate"
+          }
+        }
+      }
+    },
+
+    "components": {
+      "minecraft:type_family": {
+        "family": ["inanimate"]
+      },
+      "minecraft:collision_box": {
+        "width": 0.4,
+        "height": 0.4
+      },
+      "minecraft:rail_movement": {},
+      "minecraft:fire_immune": true,
+      "minecraft:inventory": {
+        "container_type": "minecart_chest",
+        "additional_slots_per_strength": 5,
+        "inventory_size": 32,
+        "can_be_siphoned_from": true
+      },
+      "minecraft:health": {
+        "value": 4,
+        "max": 4
+      },
+      "minecraft:knockback_resistance": {
+        "value": 1.0
+      },
+      "minecraft:is_stackable": {},
+      "minecraft:physics": {
+        "has_gravity": false,
+        "has_collision": true
+      },
+      "minecraft:pushable": {
+        "is_pushable": false,
+        "is_pushable_by_piston": true
+      },
+
+      "minecraft:conditional_bandwidth_optimization": {
+        "default_values": {
+          "max_optimized_distance": 60.0,
+          "max_dropped_ticks": 20,
+          "use_motion_prediction_hints": true
+        },
+        "conditional_values": [
+          {
+            "max_optimized_distance": 0.0,
+            "max_dropped_ticks": 0,
+            "conditional_values": [
+              { "test": "is_moving", "subject": "self", "operator": "==", "value": true }
+            ]
+          }
+        ]
+      }
+    },
+
+    "events": {
+      "minecraft:entity_spawned": {
+        "add": {
+          "component_groups": ["minecraft:hopper_active"]
+        }
+      },
+      "minecraft:hopper_activate": {
+        "remove": {
+          "component_groups": ["minecraft:hopper_inactive"]
+        },
+        "add": {
+          "component_groups": ["minecraft:hopper_active"]
+        }
+      },
+      "minecraft:hopper_deactivate": {
+        "remove": {
+          "component_groups": ["minecraft:hopper_active"]
+        },
+        "add": {
+          "component_groups": ["minecraft:hopper_inactive"]
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,191 @@
+{
+  "format_version": "1.13.0",
+  "minecraft:ore_feature": {
+    "description": {
+      "identifier": "minecraft:bedrock_feature_x"
+    },
+    "count": 99,
+    "discard_chance_on_air_exposure": 0.0,
+    "replace_rules": [
+      {
+        "places_block": "minecraft:bedrock",
+        "may_replace": [
+          {
+            "name": "minecraft:stone"
+          },
+          {
+            "name": "minecraft:deepslate"
+          },
+          {
+            "name": "minecraft:air"
+          },
+          {
+            "name": "minecraft:water"
+          },
+          {
+            "name": "minecraft:lava"
+          },
+          {
+            "name": "minecraft:dirt"
+          },
+          {
+            "name": "minecraft:gravel"
+          },
+          {
+            "name": "minecraft:andesite"
+          },
+          {
+            "name": "minecraft:coal_ore"
+          },
+          {
+            "name": "minecraft:iron_ore"
+          },
+          {
+            "name": "minecraft:diamond_ore"
+          },
+          {
+            "name": "minecraft:gold_ore"
+          },
+          {
+            "name": "minecraft:lapis_ore"
+          },
+          {
+            "name": "minecraft:redstone_ore"
+          },
+          {
+            "name": "minecraft:stone_bricks"
+          },
+          {
+            "name": "minecraft:brick_block"
+          },
+          {
+            "name": "minecraft:oak_planks"
+          },
+          {
+            "name": "minecraft:stone_slab"
+          },
+          {
+            "name": "minecraft:oak_slab"
+          },
+          {
+            "name": "minecraft:wooden_door"
+          },
+          {
+            "name": "minecraft:sandstone"
+          },
+          {
+            "name": "minecraft:glass"
+          },
+          {
+            "name": "minecraft:oak_fence"
+          },
+          {
+            "name": "minecraft:mob_spawner"
+          },
+          {
+            "name": "minecraft:trial_spawner"
+          },
+          {
+            "name": "minecraft:rail"
+          },
+          {
+            "name": "minecraft:glow_lichen"
+          },
+          {
+            "name": "minecraft:chain"
+          },
+          {
+            "name": "minecraft:web"
+          },
+          {
+            "name": "minecraft:torch"
+          },
+          {
+            "name": "minecraft:chest"
+          },
+          {
+            "name": "minecraft:magma"
+          },
+          {
+            "name": "minecraft:cave_vines_body_with_berries"
+          },
+          {
+            "name": "minecraft:cave_vines_head_with_berries"
+          },
+          {
+            "name": "minecraft:clay"
+          },
+          {
+            "name": "minecraft:oxidized_copper"
+          },
+          {
+            "name": "minecraft:copper_block"
+          },
+          {
+            "name": "minecraft:moss_carpet"
+          },
+          {
+            "name": "minecraft:decorated_pot"
+          },
+          {
+            "name": "minecraft:copper_bulb"
+          },
+          {
+            "name": "minecraft:moss_block"
+          },
+          {
+            "name": "minecraft:flower_pot"
+          },
+          {
+            "name": "minecraft:tuff_bricks"
+          },
+          {
+            "name": "minecraft:chiseled_tuff_bricks"
+          },
+          {
+            "name": "minecraft:ladder"
+          },
+          {
+            "name": "minecraft:polished_tuff"
+          },
+          {
+            "name": "minecraft:cave_vines"
+          },
+          {
+            "name": "minecraft:vine"
+          },
+          {
+            "name": "minecraft:barrier"
+          },
+          {
+            "name": "minecraft:waxed_cut_copper_slab"
+          },
+          {
+            "name": "minecraft:dripstone_block"
+          },
+          {
+            "name": "minecraft:orange_candle"
+          },
+          {
+            "name": "minecraft:flowering_azalea"
+          },
+          {
+            "name": "minecraft:structure_void"
+          },
+          {
+            "name": "minecraft:pointed_dripstone"
+          },
+          {
+            "name": "minecraft:azalea"
+          },
+          {
+            "name": "minecraft:short_grass"
+          },
+          {
+            "name": "minecraft:fern"
+          }
+        ]
+      }
+    ]
+  }
+}
