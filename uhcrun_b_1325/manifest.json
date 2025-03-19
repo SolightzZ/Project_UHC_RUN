@@ -1,0 +1,42 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "UHCRun Bedrock [B-1.3.2.5]",
+    "description": "By https://github.com/SolightzZ",
+    "min_engine_version": [1, 21, 60],
+    "uuid": "531438be-3304-4fea-92d0-307688bf34f0",
+    "version": [1, 0, 3]
+  },
+  "modules": [
+    {
+      "type": "data",
+      "uuid": "a574f9d7-8f4b-4c4c-923f-4f275e44edd5",
+      "version": [1, 0, 0]
+    },
+    {
+      "type": "script",
+      "language": "javascript",
+      "uuid": "258ec0b8-66e9-40b6-861f-d4a8c2bd8148",
+      "entry": "scripts/main.js",
+      "version": [1, 0, 0]
+    }
+  ],
+  "dependencies": [
+    {
+      "uuid": "0b4cf0c7-7874-4b82-8e25-4e40b983b964",
+      "version": [1, 0, 3]
+    },
+    {
+      "module_name": "@minecraft/server",
+      "version": "1.18.0-beta"
+    },
+    {
+      "module_name": "@minecraft/server-ui",
+      "version": "1.4.0-beta"
+    },
+    {
+      "module_name": "@minecraft/server-gametest",
+      "version": "1.0.0-beta"
+    }
+  ]
+}
